@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SmHMedicalDeviceScanLibrary</string>
+
+    <string-array name="scan_modes">
+        <item>Auto</item>
+        <item>Termometer</item>
+        <item>Weight Balance</item>
+        <item>Glucometer</item>
+        <item>Blood Pressure</item>
+        <item>Oximeter</item>
+    </string-array>
+</resources>

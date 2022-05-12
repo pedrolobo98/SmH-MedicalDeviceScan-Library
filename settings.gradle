@@ -1,0 +1,3 @@
+rootProject.name = "SmHMedicalDeviceScanLibrary"
+include ':app'
+include ':SmH-MedicalDeviceScan-Library'
