@@ -14,14 +14,27 @@ buildscript {
     }
 }
 
+plugins {
+    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+}
+
 allprojects {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+group = "io.github.pedrolobo98"
+version = "1.0.0"
+
+nexusPublishing {
+    repositories {
+        sonatype {
+            nexusUrl = uri("https://s01.oss.sonatype.org/service/local/")
+            snapshotRepositoryUrl = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+            username = "bYnowLLn"
+            password = "gLoPBQEGkYuzxjshJkK/UZmu8DI3F2/onqNydDjWqDyY"
+        }
+    }
 }
