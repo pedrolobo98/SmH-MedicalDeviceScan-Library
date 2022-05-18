@@ -28,6 +28,9 @@ private val detector by lazy {
 }
 ```
 Run the following function. This function receives the image (Bitmap) to be processed, the rotation (Int) at which it was acquired as well as the device or devices being analyzed. Device selection is done through an 'int' input variable ranging from 0 to 6.
+
+![Capturar1](https://user-images.githubusercontent.com/57667127/169086536-57f8f143-e9e8-4e56-8c43-280266152e2f.PNG)
+
 ```
 var (listDetections, bitmapOut) = detector.runObjectDetection(bitmapIn, rotation, mode)
 ```
