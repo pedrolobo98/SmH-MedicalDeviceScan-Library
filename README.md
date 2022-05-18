@@ -13,3 +13,12 @@ dependencies {
    implementation 'io.github.pedrolobo98:SmH-MedicalDeviceScan-Library:1.0.0'
 }
 ```
+## Usage
+This topic will explain how to use the library in question, smart scan of a single image and smart scan through camera live mode with or without assistant.
+In the case of smart scan through camera live mode, you need to add the following permission in the manifest file.
+
+```
+<uses-permission android:name="android.permission.CAMERA" />
+```
+### 1. Single image
+
