@@ -3,7 +3,7 @@
 # SmH-MedicalDeviceScan-Library
 SmH-MedicalDeviceScan-Library is a library that allows you to perform intelligent scanning of medical analysis displayed on screens of devices such as oximeter, blood pressure meter, glucometer, thermometer and scales.
 
-![Capturar](https://user-images.githubusercontent.com/57667127/168627650-8b38cb73-e34a-4d99-a7ff-bb1db794674a.PNG)
+![Imagem3](https://user-images.githubusercontent.com/57667127/169044932-29fa727e-df66-4120-8956-56398dcae4dc.png)
 
 ## Integration
 Add de dependencie to the build.gradle file.
