@@ -21,4 +21,68 @@ In the case of smart scan through camera live mode, you need to add the followin
 <uses-permission android:name="android.permission.CAMERA" />
 ```
 ### 1. Single image
+Start class
+```
+private val detector by lazy {
+    ObjectDetectionAssistantHelper(this)
+}
+```
+Run the following function. This function receives the image (Bitmap) to be processed, the rotation (Int) at which it was acquired as well as the device or devices being analyzed. Device selection is done through an 'int' input variable ranging from 0 to 6.
+```
+var (listDetections, bitmapOut) = detector.runObjectDetection(bitmapIn, rotation, mode)
+```
+This function returns two variables, an image (bitmap) and a list (List<Float>). The image contains the region of the device's screen that contains the detected objects as well as their bounding boxes drawn on the image. The list contains the extracted information which is represented in the following figure.
+   
+![Capturar3](https://user-images.githubusercontent.com/57667127/169083405-6141a8df-d0f5-461d-b12e-1dbc1c478415.PNG)
 
+### 2. Camera Live Mode Without Assistant
+   
+Start the activity responsible for camera live mode from your activity.
+```
+val intent = Intent(this, CameraActivity::class.java)
+var mode = 0
+intent.putExtra(Utils().modeSelectionKey, mode)
+intent.putExtra(Utils().homeActivityKey, this::class.java.name)
+finish()
+startActivity(intent)   
+```
+To receive the information extracted in the initial activity
+   
+```
+override fun onResume() {
+    super.onResume()
+    if (intent.extras?.getByteArray(Utils().pictureOutKey) != null){
+
+        val byteArray = intent.extras?.getByteArray(Utils().pictureOutKey)
+        val bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray!!.size)
+
+        txtTimer.setText(time.toString())
+        inputImageView.setImageBitmap(bmp)
+    }
+}
+   
+### 3. Camera Live Mode With
+   
+Start the activity responsible for camera live mode from your activity.
+```
+val intent = Intent(this, CameraAssistantActivity::class.java)
+var mode = 0
+intent.putExtra(Utils().modeSelectionKey, mode)
+intent.putExtra(Utils().homeActivityKey, this::class.java.name)
+finish()
+startActivity(intent)   
+```
+To receive the information extracted in the initial activity
+   
+```
+override fun onResume() {
+    super.onResume()
+    if (intent.extras?.getByteArray(Utils().pictureOutKey) != null){
+
+        val byteArray = intent.extras?.getByteArray(Utils().pictureOutKey)
+        val bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray!!.size)
+
+        txtTimer.setText(time.toString())
+        inputImageView.setImageBitmap(bmp)
+    }
+}
